@@ -20,3 +20,26 @@ def definir_parametros():
         cantidad_letras = len(palabra_encontrar)
         print(f"\nPalabra oculta establecida: {palabra_encontrar.upper()}. Largo: {cantidad_letras} letras")
         break
+
+    while intentos_maximos == 0:
+        try:
+            cantidad_intentos = int(input(f"¿Cuantos intentos deseas dar? (Minimo {min_intentos}, Maximo {max_intentos}): "))
+
+            if cantidad_intentos < min_intentos:
+                intentos_maximos = min_intentos
+                print(f"¡Demasiado dificil! Se inicializa el minimo de *{min_intentos}* intentos")
+            
+            elif cantidad_intentos > max_intentos:
+                intentos_maximos = max_intentos
+                print(f"¡Demasiado facil! Se inicializa el maximo de *{max_intentos}* intentos")
+            
+            else:
+                intentos_maximos = cantidad_intentos
+                
+        except ValueError:
+            print("¡ALERTA!: Por favor, introduce un numero entero valido para los intentos")
+            continue 
+            
+    print(f"Tienes *{intentos_maximos}* oportunidades para adivinar la palabra")
+    
+    return palabra_encontrar, intentos_maximos, cantidad_letras
