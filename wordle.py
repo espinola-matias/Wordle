@@ -43,3 +43,30 @@ def definir_parametros():
     print(f"Tienes *{intentos_maximos}* oportunidades para adivinar la palabra")
     
     return palabra_encontrar, intentos_maximos, cantidad_letras
+
+def obtener_pista():
+    pista = "" 
+    while True:
+        try:
+            respuesta = int(input("\n¿Deseas dejar una pista para el jugador? (1: Si, dejar pista | 2: No, dejar el juego dificil): "))
+
+            if respuesta == 1:
+                pista = input("Escribe tu pista (ej: 'Es sobre fútbol', 'Palabra en ingles'): ")
+                if not pista:
+                     pista = "El creador dejo el espacio vacio, ¡pero al menos elegiste dejar una pista!"
+                break
+            
+            elif respuesta == 2:
+                print("\n¡Maxima dificultad seleccionada!")
+                pista = "¡Esta dificil! El creador no dejo ninguna pista ¡Adivina a ciegas!"
+                break
+                
+            else:
+                print("Opción no valida. Por favor, ingresa solo '1' o '2'")
+                continue
+
+        except ValueError:
+            print("¡ALERTA!: Por favor, introduce un numero entero (1 o 2)")
+            continue
+            
+    return pista
