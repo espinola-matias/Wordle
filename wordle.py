@@ -70,3 +70,22 @@ def obtener_pista():
             continue
             
     return pista
+
+def verificar_palabra_ingresada(palabra_a_encontrar, palabra_ingresada):
+    resultado = []
+    cantidad_de_letras = len(palabra_a_encontrar) 
+
+    for posicion in range(cantidad_de_letras):
+        letra_ingresada = palabra_ingresada[posicion]
+        
+        las_letras_son_iguales = palabra_a_encontrar[posicion] == letra_ingresada
+        la_letra_existe = letra_ingresada in palabra_a_encontrar
+
+        if las_letras_son_iguales:
+            resultado.append('[' + letra_ingresada.upper() + ']')
+        elif la_letra_existe:
+            resultado.append('(' + letra_ingresada.lower() + ')')
+        else: 
+            resultado.append(letra_ingresada.lower())
+
+    return resultado
