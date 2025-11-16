@@ -89,3 +89,9 @@ def verificar_palabra_ingresada(palabra_a_encontrar, palabra_ingresada):
             resultado.append(letra_ingresada.lower())
 
     return resultado
+
+def imprimir_grilla(grilla):
+    print("\n--- RESPUESTA ACTUAL ---")
+    for fila in grilla:
+        print(" ".join(fila))
+    print("--------------------\n")
