@@ -136,3 +136,10 @@ def jugar():
         if palabra_ingresada == palabra_a_encontrar:
             print("¡FELICIDADES, GANASTE! Eres un maestro de las palabras")
             break
+
+    if intentos_restantes == 0 and palabra_ingresada != palabra_a_encontrar:
+        print("¡Se te acabaron los intentos!")
+        print(f"La palabra secreta era: **{palabra_a_encontrar.upper()}**")
+
+if __name__ == "__main__":
+    jugar()
