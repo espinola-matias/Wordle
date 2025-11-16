@@ -95,3 +95,21 @@ def imprimir_grilla(grilla):
     for fila in grilla:
         print(" ".join(fila))
     print("--------------------\n")
+
+def jugar():
+    
+    palabra_a_encontrar, intentos_restantes, cantidad_de_letras = definir_parametros()
+    pista_jugador = obtener_pista() 
+    grilla = [] 
+
+    print("\n" + "="*50)
+    print("¡BIENVENIDO AL DESAFIO WORDLE!")
+    print("="*50)
+    print(f"El desafio es adivinar una palabra de *{cantidad_de_letras}* letras. Y tienes {intentos_restantes} intentos")
+    print("\n**COMO INTERPRETAR LOS RESULTADOS:**")
+    print(f"  - **[A]** (Corchetes): La letra 'A' esta en la palabra y esta en la **POSICION CORRECTA**")
+    print(f"  - **(B)** (Paréntesis): La letra 'B' esta en la palabra, pero en la **POSICIoN INCORRECTA**")
+    print(f"  - **c** (Minuscula simple): La letra 'c' **NO EXISTE** en la palabra secreta")
+    
+    print(f"\n**PISTA DEL CREADOR:** {pista_jugador}")
+    print("\n" + "="*50) 
