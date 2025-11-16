@@ -113,3 +113,26 @@ def jugar():
     
     print(f"\n**PISTA DEL CREADOR:** {pista_jugador}")
     print("\n" + "="*50) 
+
+    while intentos_restantes > 0:        
+        print(f"\n¡Te quedan {intentos_restantes} intentos!")
+        
+        palabra_ingresada = input(f"Adivina la palabra ({cantidad_de_letras} letras): ").lower()
+        if len(palabra_ingresada) != cantidad_de_letras:
+            print(f"¡Ojo! Ingrese una palabra con *{cantidad_de_letras}* letras exactas. Intentelo de nuevo")
+            continue 
+            
+        if not palabra_ingresada.isalpha():
+             print("¡Solo se permiten letras del abecedario! Sin numeros, ni simbolos")
+             continue
+        
+        linea_verificada = verificar_palabra_ingresada(palabra_a_encontrar, palabra_ingresada)
+        
+        grilla.append(linea_verificada)
+        intentos_restantes -= 1
+        
+        imprimir_grilla(grilla)
+
+        if palabra_ingresada == palabra_a_encontrar:
+            print("¡FELICIDADES, GANASTE! Eres un maestro de las palabras")
+            break
